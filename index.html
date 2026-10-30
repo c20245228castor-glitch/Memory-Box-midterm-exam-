@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memory Box</title>
+
+    <!-- ===== STARTER HEAD: keep these exact tags ===== -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <style type="text/tailwindcss">
+        @custom-variant dark (&:where(.dark, .dark *));
+
+        @theme {
+            --color-primary: #333333;
+            --color-secondary: #555555;
+            --color-accent: #b89b72;
+            --color-background: #f5f3ef;
+            --color-text: #ffffff;
+        }
+
+        @layer components {
+            .btn-primary {
+                @apply rounded-lg bg-primary px-4 py-2 text-white hover:bg-secondary;
+            }
+
+            .btn-secondary {
+                @apply rounded-lg border border-primary px-4 py-2 text-primary hover:bg-primary hover:text-white;
+            }
+
+            .btn-accent {
+                @apply rounded-lg bg-accent px-4 py-2 text-white hover:opacity-80;
+            }
+        }
+    </style>
+    <!-- ===== END STARTER HEAD ===== -->
+</head>
+
+<body class="bg-background text-primary text-center transition-colors duration-300 dark:bg-gray-900 dark:text-white">
+
+    <!-- Scroll Progress Bar -->
+    <div id="progressBar" class="fixed top-0 left-0 z-50 h-1 w-full origin-left bg-accent"></div>
+
+    <!-- Navigation -->
+    <nav id="navbar" class="flex flex-wrap items-center justify-between gap-4 bg-white p-5 shadow-sm dark:bg-gray-800">
+
+        <h1 class="text-2xl font-bold">Memory Box</h1>
+
+        <ul class="flex flex-wrap items-center justify-center gap-4 text-sm">
+            <li><a href="#home" class="hover:text-accent">Home</a></li>
+            <li><a href="#about" class="hover:text-accent">About Us</a></li>
+            <li><a href="#services" class="hover:text-accent">Services</a></li>
+            <li><a href="#contact" class="hover:text-accent">Contact</a></li>
+
+            <li>
+                <button id="replay" class="btn-secondary">
+                    Replay Intro
+                </button>
+            </li>
+
+            <li>
+                <button id="darkModeToggle" class="btn-primary">
+                    🌙 Dark Mode
+                </button>
+            </li>
+        </ul>
+
+    </nav>
+
+    <!-- Home -->
+    <header id="home" class="bg-[#e9e3d9] px-6 py-20 text-primary dark:bg-gray-800 dark:text-white">
+
+        <h2 class="mb-4 text-4xl font-bold sm:text-5xl">
+            Good Day,
+            <span class="text-accent">Photogenics!</span>
+        </h2>
+
+        <p class="text-lg">
+            Let's capture your memories in the most beautiful way possible.
+        </p>
+
+    </header>
+
+    <main class="mx-auto max-w-6xl space-y-16 px-6 py-12">
+
+        <!-- About Us -->
+        <section id="about" class="reveal grid items-center gap-10 text-left lg:grid-cols-2">
+
+            <div>
+
+                <p class="mb-3 text-sm font-semibold uppercase tracking-widest text-accent">
+                    Photographs to keep forever
+                </p>
+
+                <h1 class="mb-5 text-4xl font-bold">
+                    A little more life in every frame.
+                </h1>
+
+                <p class="mb-6 leading-relaxed text-gray-600 dark:text-gray-300">
+                    Memory Box captures the people, places, and little
+                    in-between moments you never want to forget.
+                    Customize and explore a few of the stories we love to photograph.
+                </p>
+
+                <div class="flex flex-wrap gap-3">
+                    <a href="#services" class="btn-primary">
+                        Explore Our Services
+                    </a>
+
+                    <a href="#contact" class="btn-secondary">
+                        Plan a Session
+                    </a>
+                </div>
+
+            </div>
+
+            <!-- Photography Images -->
+            <div class="grid grid-cols-2 gap-3">
+
+                <figure class="overflow-hidden rounded-lg">
+                    <img src="https://neyssalee.com/wp-content/uploads/2023/06/Seattle_snoqualmie_family_photographer_neyssa_lee__3289-scaled.jpg"
+                        alt="Family moments" class="h-64 w-full object-cover" loading="lazy">
+
+                    <figcaption class="py-2 text-sm font-medium">
+                        Family Moments
+                    </figcaption>
+                </figure>
+
+                <div class="grid gap-3">
+
+                    <figure class="overflow-hidden rounded-lg">
+                        <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=900&q=85"
+                            alt="Wedding celebration" class="h-32 w-full object-cover" loading="lazy">
+
+                        <figcaption class="py-2 text-sm font-medium">
+                            Celebrations
+                        </figcaption>
+                    </figure>
+
+                    <figure class="overflow-hidden rounded-lg">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2_kimAZWzz_2Qtubm0tFpROzOGzSsQj7ErA0gCCMDIw&s=10"
+                            alt="Portrait photography" class="h-32 w-full object-cover" loading="lazy">
+
+                        <figcaption class="py-2 text-sm font-medium">
+                            Portraits
+                        </figcaption>
+                    </figure>
+
+                </div>
+            </div>
+
+        </section>
+
+        <!-- Services -->
+        <section id="services" class="reveal text-left">
+
+            <h2 class="mb-8 text-3xl font-bold text-center">
+                Our Services
+            </h2>
+
+            <div class="grid gap-5 sm:grid-cols-3">
+
+                <article class="rounded-lg bg-white p-6 shadow-sm dark:bg-gray-800">
+                    <h3 class="mb-3 text-xl font-semibold">
+                        Portrait Sessions
+                    </h3>
+
+                    <p class="text-sm leading-relaxed text-gray-600 dark:text-gray-300">
+                        Personal, couple, and family portraits that feel like you.
+                    </p>
+                </article>
+
+                <article class="rounded-lg bg-white p-6 shadow-sm dark:bg-gray-800">
+                    <h3 class="mb-3 text-xl font-semibold">
+                        Life Celebrations
+                    </h3>
+
+                    <p class="text-sm leading-relaxed text-gray-600 dark:text-gray-300">
+                        Weddings, birthdays, and meaningful moments in between.
+                    </p>
+                </article>
+
+                <article class="rounded-lg bg-white p-6 shadow-sm dark:bg-gray-800">
+                    <h3 class="mb-3 text-xl font-semibold">
+                        Custom Memory Box
+                    </h3>
+
+                    <p class="text-sm leading-relaxed text-gray-600 dark:text-gray-300">
+                        Candid lifestyle photography for memories happening right now.
+                    </p>
+                </article>
+
+            </div>
+
+        </section>
+
+        <!-- Contact -->
+        <section id="contact" class="reveal rounded-lg bg-white p-8 text-left shadow-sm dark:bg-gray-800">
+
+            <div class="mx-auto max-w-2xl">
+
+                <p class="mb-2 text-sm font-semibold uppercase tracking-widest text-accent">
+                    Get in Touch
+                </p>
+
+                <h2 class="mb-4 text-3xl font-bold">
+                    Contact Memory Box
+                </h2>
+
+                <p class="mb-6 text-gray-600 dark:text-gray-300">
+                    Have a memory you would like us to capture?
+                    Send us a message and let's plan your session.
+                </p>
+
+                <form action="#" class="grid gap-4">
+
+                    <input type="text" placeholder="Your Name"
+                        class="rounded-lg border border-gray-300 bg-transparent p-3 outline-none focus:border-accent">
+
+                    <input type="email" placeholder="Your Email"
+                        class="rounded-lg border border-gray-300 bg-transparent p-3 outline-none focus:border-accent">
+
+                    <textarea id="message" name="message" placeholder="Your Message" rows="5" required
+                        class="rounded-lg border border-gray-300 bg-transparent p-3 outline-none focus:border-accent"></textarea>
+
+                    <button type="submit" class="btn-accent">
+                        Send Message
+                    </button>
+
+                </form>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-primary py-5 text-white">
+        <p>&copy; 2026 Memory Box. All Rights Reserved.</p>
+    </footer>
+
+    <!-- GSAP Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
